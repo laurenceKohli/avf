@@ -1,0 +1,12 @@
+:root {
+  /* Colors */
+  --primary-color: #F89F5A;
+  --secondary-color: #1d771d;
+
+  /* Globals */
+  --text-color: #000;
+  --border-radius: 10px;
+
+  /* Animations */
+  --default-transition: 300ms ease-in-out;
+}
