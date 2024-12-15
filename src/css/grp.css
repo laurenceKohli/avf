@@ -1,0 +1,12 @@
+img{
+    width: 35vw;
+    object-fit: cover;
+}
+
+#intro, #salle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}

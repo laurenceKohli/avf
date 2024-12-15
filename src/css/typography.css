@@ -1,7 +1,9 @@
 /* On utilise Montserrat par défaut */
 * {
-  font-family: "Akaya Kanadaka", sans-serif;
-  font-size: 14px;
+  font-family: "Calistoga", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
   color: var(--text-color);
 }
 
@@ -10,31 +12,42 @@ h1 {
 }
 
 h2 {
-  font-size: 3.5rem;
-}
-
-h3 {
-  font-size: 3rem;
-}
-
-h4 {
-  font-size: 2.5rem;
-}
-
-h5 {
   font-size: 2rem;
 }
 
-h6 {
+h3 {
   font-size: 1.5rem;
 }
 
-p, ol, li, a{
+
+
+nav p, ol, li, a{
   font-family: "Caudex", sans-serif;
+  font-size: 28px;
 }
 
 text {
   font-family: "Caudex", sans-serif;
   font-size: 14px;
   fill: var(--text-color);
+}
+
+span {
+  color: var(--primary-color);
+}
+
+h2 span {
+  font-size: 3.5rem;
+}
+
+p.higher{
+  font-size: 1.4rem;
+}
+
+p.high {
+  font-size: 1.1rem;
+}
+
+p.small {
+  font-size: 0.9rem;
 }
