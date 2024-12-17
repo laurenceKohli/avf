@@ -18,12 +18,16 @@
 			<li><a href="/about">A propos</a></li>
 		</ul>
 	</nav>
-	<main>
+	<main id="proches">
+		<div id="timer">
+			<p>00:00</p>
+		</div>
 		<section id="intro">
 			<img src="assets/img/famille.png" alt="votre famille">
 			<p class="classic">Tom, votre fils, n’a plus de vie sociale depuis sa dernière <span>crise d’AVF</span> en public. 
 				Après des jours de <span>négociation</span>, vous arrivez à le convaincre de venir à la pizzeria du coin 
 				avec toute la <span>famille</span>.</p>
+			<img src="assets/img/car.webp" alt="" id="car">
 		</section>
 		<section id="salle">
 			<p class="classic">La salle est <span>bondée</span>...</p>
@@ -31,10 +35,7 @@
 		</section>
 		<section id="start">
 			<p class="small">Votre table est située au centre de la pièce. </p>
-			<p class="high">A peine êtes-vous installés que Tom se couche par terre et part en <span>crise</span>.</p>
-			<div id="timer">
-				<p>00:00</p>
-			</div>
+			<p class="high" id="crise">A peine êtes-vous installés que Tom se couche par terre et part en <span>crise</span>.</p>
 		</section>
 		<section id="paroles1">
 			<p class="parole">Appelez les <span>secours</span> !</p>
@@ -52,8 +53,11 @@
 			<p class="parole">C'est <span>inhumain</span> de le regarder sans agir !</p>
 		</section>
 		<section id="reponse">
-			<p class="high">Alors qu’il hurle de douleur, vous <span>rassurez</span> les autres clients en leur disant que tout est <span>sous contrôle</span>.</p>
-			<p id="reponse" class="parole">Pas besoin d’ambulance</p>
+			<img src="assets/img/sol.jpg" alt="Personne au sol">
+			<div>
+				<p class="high">Alors qu’il hurle de douleur, vous <span>rassurez</span> les autres clients en leur disant que tout est <span>sous contrôle</span>.</p>
+				<p id="reponse" class="parole">Pas besoin d’ambulance</p>
+			</div>
 		</section>
 		<section id="fin">
 			<p class="higher"><span>30 minutes</span> plus tard, Tom finit par reprendre pieds. Il est fatigué. </p>
@@ -74,8 +78,8 @@
 			<p class="high"><span>à nouveau...</span></p>
 		</section>
 		<section id="groupe">
-			<h2>Vous n’êtes pas seul.e à vivre cette situation</h2>
-			<p class="high"><span>3 personnes sur 1000</span>sont atteintes d’AVF</p>
+			<h3>Vous n’êtes pas seul.e à vivre cette situation</h3>
+			<p class="high"><span>3 personnes sur 1000</span> sont atteintes d’AVF</p>
 			<p class="high">Sur la population suisse cela représente plus de 8’000 personnes</p>
 		</section>
 		<section id="citations">
@@ -84,12 +88,12 @@
 			<p class="citation">Les passants ont des mouvements de peur ou font des <span>commentaires inadaptés</span> pour trouver des explications.</p>
 		</section>
 		<section id="conclusion">
-			<h3>Rejoignez notre groupe de paroles à destination des proches de personnes atteintes d’AVF.</h3>
+			<h4>Rejoignez notre groupe de paroles à destination des proches de personnes atteintes d’AVF.</h4>
 			<p>Chaque <span>premier samedi du mois</span>, un groupe de parents, compagnons et compagnes se réunissent à Champéry pour échanger sur leur quotidien, 
 				leurs craintes mais aussi pour partager leurs astuces et leurs réussites.</p>
 			<p>Que vous ayez envie de nous partager des choses ou juste de venir écouter, soyez les bienvenus dès notre prochaine réunion.</p>
 			<p class="small">Aucune inscription n’est nécessaire</p>
-			<div>
+			<div class="buttons">
 				<a href="/groupe" class="button primary">Rejoindre le groupe de paroles</a>
 				<a href="/avf" class="button">En savoir plus sur l'AVF</a>
 			</div>

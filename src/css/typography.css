@@ -1,10 +1,16 @@
 /* On utilise Montserrat par défaut */
-* {
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+#proches{
   font-family: "Calistoga", serif;
   font-weight: 400;
   font-style: normal;
   font-size: 36px;
-  color: var(--text-color);
+  text-align: center;
 }
 
 h1 {
@@ -19,11 +25,8 @@ h3 {
   font-size: 1.5rem;
 }
 
-
-
 nav p, ol, li, a{
-  font-family: "Caudex", sans-serif;
-  font-size: 28px;
+  color: var(--text-color);
 }
 
 text {
@@ -36,18 +39,32 @@ span {
   color: var(--primary-color);
 }
 
-h2 span {
-  font-size: 3.5rem;
+#proches h2, #proches h2 span {
+  font-size: 64px;
 }
 
-p.higher{
-  font-size: 1.4rem;
+
+#proches h3, #proches h3 span {
+  font-size: 48px;
 }
 
-p.high {
-  font-size: 1.1rem;
+
+#proches h4, #proches h4 span {
+  font-size: 40px;
+}
+#proches p.higher{
+  font-size: 48px;
 }
 
-p.small {
-  font-size: 0.9rem;
+#proches p.high {
+  font-size: 40px;
+}
+
+#proches p.small {
+  font-size: 32px;
+}
+
+#timer p{
+  font-size: 96px;
+  margin: 0;
 }
