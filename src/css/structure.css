@@ -28,11 +28,7 @@ section {
   margin: auto;
   max-width: 1000px;
   height: 110vh;
-}
-
-section.active, section.active section { /* avec la classe "active", on affiche la section */
-  display: flex;
-  flex-direction: column;
+  border: #00000050 solid 1px;
 }
 
 nav{
