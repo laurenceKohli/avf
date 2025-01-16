@@ -40,7 +40,7 @@ img{
 }
 
  /*SCROLLAMA*/
-#fix {
+#fix, #fix1 {
     margin-top: 0px;
     /* min-height: 100vh; */
     position: relative;
@@ -52,11 +52,6 @@ img{
     height: fit-content;
   }
 
-#fix>* {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-  }
   
   article {
     position: relative;
@@ -73,12 +68,23 @@ img{
     height: 600px;
     background-color: #8a8a8a;
     z-index: 0;
-    translate: -120px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: var(--gap-classic);
+  }
+
+  #figure1{
+    align-items: baseline;
+    text-align: left;
+    gap: var(--gap-small);
+    justify-content: flex-start;
+  }
+
+  #figure1>*{
+    white-space: inherit;
+    opacity: 0;
   }
   
   .step {
@@ -88,8 +94,12 @@ img{
     height: 700px;
   }
 
-  #step3{
+  #step3, #step6{
     height: 1400px;
+  }
+
+  #step7{
+    height: 2000px;
   }
   
   .step:last-child {
@@ -110,6 +120,16 @@ img{
   position: absolute;
   white-space: nowrap;
 }
+
+#seule1, #seule2{
+  margin : 0;
+  top: -30px;
+  position: relative;
+}
+
+
+
+
 
 #seule, #impuissance, #groupe, #conclusion{
     display: block;
