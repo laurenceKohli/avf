@@ -22,10 +22,12 @@ function handleStepEnter(response) {
             break;
         case 1:
            figure.html(`
-                <p class="parole">Appelez les <span>secours</span> !</p>
-                <p class="parole">Mon Dieu ! Que lui arrive-t-il ?</p>
-                <p class="parole">Mais <span>faites quelque chose</span> !</p>
+                <p class="parole1" style="top: 50px;left: 150px;">Appelez les <span>secours</span> !</p>
+                <p class="parole1">Mon Dieu ! Que lui arrive-t-il ?</p>
+                <p class="parole1" style="top: 400px;left: 50px;">Mais <span>faites quelque chose</span> !</p>
+                <p class="parole1"></p>
             `)
+            paroles('.parole1', '#step2');
             break;
         case 2:
             figure.html(`
@@ -38,23 +40,25 @@ function handleStepEnter(response) {
         case 3:
             figure.html(`
                 <p class="parole">Il va <span>mourir</span> !</p>
-                <p class="parole">Oh mon Dieu ! Faites quelque chose !</p>
-                <p class="parole">C'est <span>inhumain</span> de le regarder sans agir !</p>
+                <p class="parole" style="top: 20px; left: -250px;">Oh mon Dieu ! Faites quelque chose !</p>
+                <p class="parole" style="top: 400px;left: -100px;">C'est <span>inhumain</span> de le regarder sans agir !</p>
                 `);
+            paroles('.parole', '#step4');
             break;
         case 4:
             figure.html(`
                 <img src="assets/img/sol.jpg" alt="Personne au sol">
 			<div>
 				<p class="high">Alors qu’il hurle de douleur, vous <span>rassurez</span> les autres clients en leur disant que tout est <span>sous contrôle</span>.</p>
-				<p id="reponse" class="parole">Pas besoin d’ambulance</p>
+				<p id="reponse" class="parole">Pas besoin d’ambulance...</p>
 			</div>
             `);
+            laReponse();
             break;
         case 5:
             figure.html(`
                 <p class="higher"><span>30 minutes</span> plus tard, Tom finit par reprendre pieds. Il est fatigué. </p>
-			    <p class="high">Toute la famille rentre, un carton de pizza sous le bras.</p>
+			    <p class="high" id="pizzas">Toute la famille rentre, un carton de pizza sous le bras.</p>
             `);
             end();
             break;
@@ -118,7 +122,6 @@ function counter() {
 			end: "top 40%",
 			toggleActions: "restart pause reverse pause",
 			scrub: true,
-            markers: true,
 			onUpdate: self => {
 				const progress = self.progress;
 				if (progress < 0.01) {
@@ -176,10 +179,8 @@ function end() {
 			end: "center 60%", 
 			toggleActions: "restart pause reverse pause",
 			scrub: true, 
-			markers: true,
 			onUpdate: self => {
 				const progress = self.progress;
-				console.log(progress);
 				if (progress > 0.8) {
 					gsap.to("#timer", { opacity: 0 });
 				} else {
@@ -188,6 +189,22 @@ function end() {
 			},
 		}
 	});
+
+    gsap.to("#pizzas", {
+        ease: "power1.in", 
+        scrollTrigger: {
+            trigger: "#step6", 
+            start: "top 10%", 
+            end: "bottom center", 
+            toggleActions: "restart pause reverse pause",
+            scrub: true,
+            markers: true,
+           onEnter: () => gsap.to("#pizzas", { opacity: 1, duration: 0.5 }),
+            onLeave: () => gsap.to("#pizzas", { opacity: 0, duration: 0.5 }),
+            onEnterBack: () => gsap.to("#pizzas", { opacity: 1, duration: 0.5 }),
+            onLeaveBack: () => gsap.to("#pizzas", { opacity: 0, duration: 0.5 })
+        }
+    });
 }
 
 function habitude() {
@@ -248,4 +265,44 @@ function habitude() {
         }
     });
 
+}
+
+function paroles(querySelectorValue, triggerValue) {
+    const paroles = document.querySelectorAll(querySelectorValue);
+    
+    paroles.forEach((parole, index) => {
+        gsap.set(parole, {
+            opacity: 0,
+        });
+
+        // ScrollTrigger individuel pour chaque parole
+        ScrollTrigger.create({
+            trigger: triggerValue,
+            start: `top+=${index * 200}px 40%`, // Décalage progressif du déclenchement
+            end: `top+=${(index+1) * 350}px center`,
+            toggleActions: "restart pause reverse pause",
+            scrub: true,
+            onEnter: () => gsap.to(parole, { opacity: 1, duration: 0.5 }),
+            onLeave: () => gsap.to(parole, { opacity: 0, duration: 0.5 }),
+            onEnterBack: () => gsap.to(parole, { opacity: 1, duration: 0.5 }),
+            onLeaveBack: () => gsap.to(parole, { opacity: 0, duration: 0.5 })
+        });
+    });
+}
+
+function laReponse() {
+    gsap.to("#reponse", {
+        ease: "power1.in", 
+        scrollTrigger: {
+            trigger: "#step5", 
+            start: "top 20%", 
+            end: "bottom 80%", 
+            toggleActions: "restart pause reverse pause",
+            scrub: true,
+           onEnter: () => gsap.to("#reponse", { opacity: 1, duration: 0.5 }),
+            onLeave: () => gsap.to("#reponse", { opacity: 0, duration: 0.5 }),
+            onEnterBack: () => gsap.to("#reponse", { opacity: 1, duration: 0.5 }),
+            onLeaveBack: () => gsap.to("#reponse", { opacity: 0, duration: 0.5 })
+        }
+    });
 }

@@ -31,6 +31,11 @@ section {
   border: #00000050 solid 1px;
 }
 
+main section:last-child {
+  height: fit-content;
+  padding-bottom: 15vh;
+}
+
 nav{
   background-color: #00000050;
 }
@@ -75,7 +80,7 @@ footer{
 }
 
 .button{
-  border: 6px solid var(--primary-color);
+  border: 3px solid var(--primary-color);
   border-radius: var(--border-radius);
   padding: 10px 20px;
   font-size: 1.2rem;

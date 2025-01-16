@@ -102,8 +102,13 @@ img{
     font-size: 0px;
   }
   
-#crise, .hidden{
+#crise, .hidden, #reponse, #pizzas{
     opacity: 0;
+}
+
+.parole, .parole1 {
+  position: absolute;
+  white-space: nowrap;
 }
 
 #seule, #impuissance, #groupe, #conclusion{
