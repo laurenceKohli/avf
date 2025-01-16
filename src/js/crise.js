@@ -65,7 +65,6 @@ function handleStepEnter(response) {
             break;
         case 4:
             figure.html(`
-                <img src="assets/img/sol.jpg" alt="Personne au sol">
             <div>
                 <p class="high">Alors qu’il hurle de douleur, vous <span>rassurez</span> les autres clients en leur disant que tout est <span>sous contrôle</span>.</p>
                 <p id="reponse" class="parole">Pas besoin d’ambulance...</p>
