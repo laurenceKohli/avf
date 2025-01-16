@@ -2,7 +2,7 @@
 // import populationData from "../data/population_total.csv";
 
 import { playCar } from "./js/animations";
-import {initCriseScroll} from "./js/crise";
+import { initScroll } from "./js/animations";
 
 playCar();
-initCriseScroll();
+initScroll();
