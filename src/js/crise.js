@@ -22,8 +22,7 @@ export function initScroll() {
     // 3. bind scrollama event handlers (this can be chained like below)
     scroller
         .setup({
-            step: ".step",
-            debug: true
+            step: ".step"
         })
         .onStepEnter(handleStepEnter);
 }
@@ -598,7 +597,6 @@ function citation() {
             end: "center center",
             toggleActions: "restart pause reverse pause",
             scrub: true,
-            markers: true,
             onUpdate: self => {
                 const progress = self.progress;
                 if (progress < 0.1) {

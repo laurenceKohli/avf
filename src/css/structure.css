@@ -28,7 +28,6 @@ section {
   margin: auto;
   max-width: 1000px;
   height: 110vh;
-  border: #00000050 solid 1px;
 }
 
 main section:last-child {
