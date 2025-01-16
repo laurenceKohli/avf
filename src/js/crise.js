@@ -100,11 +100,27 @@ function handleStepEnter(response) {
         case 7:
             figure2.html(`
                 <h2 id="imp"><span>L'impuissance.</span></h2>
-			    <p class="high">Elle vous gagne à nouveau et vous essayer de trouver un sens à tout cela. C’était la première fois que vous arriviez à convaincre 
-				Tom de vous accompagner et voilà qu’il n'osera plus sortir…</p>
-			    <p class="high"><span>à nouveau...</span></p>
+			    <p class="high" id="imp1">Elle vous gagne à nouveau et vous essayer de trouver un sens à tout cela.</p>
+                <p class="high" id="imp2">C’était la première fois que vous arriviez à convaincre Tom de vous accompagner et voilà qu’il n'osera plus sortir…</p>
+			    <p class="high" id="imp3"><span>à nouveau...</span></p>
             `);
             impuissance();
+            break;
+        case 8:
+            figure2.html(`
+                <h3 id="situation">Vous n’êtes pas seul.e à vivre cette situation</h3>
+			    <p class="high situation" style="top: 180px; right: 0;"><span>3 personnes sur 1000</span> sont atteintes d’AVF</p>
+			    <p class="high situation" style="top: 290px">Sur la population suisse cela représente plus de 8’000 personnes</p>
+            `);
+            situation();
+            break;
+        case 9:
+            figure2.html(`
+                <p id="citation1">" C’est toujours une <span>source de stress</span> et d'inquiétude. 
+				Au fil des années nous avons trouvé une manière de gérer les crises avec notre fis, mais cela demande de <span>l’abnégation</span> et de la patience avec beaucoup d’<span>amour</span>."</p>
+			    <p id="citation2">" Les passants ont des mouvements de peur ou font des <span>commentaires inadaptés</span> pour trouver des explications."</p>
+            `);
+            citation();
             break;
         default:
             break;
@@ -343,7 +359,7 @@ function laReponse() {
 /**
  * Animation de la fin de l'histoire
  */
-function solitude(){
+function solitude() {
     gsap.to("#seule", {
         ease: "power1.in",
         scrollTrigger: {
@@ -362,7 +378,7 @@ function solitude(){
             },
         }
     });
-    
+
     gsap.to("#seule1", {
         ease: "power1.in",
         scrollTrigger: {
@@ -390,7 +406,6 @@ function solitude(){
             end: "top -20%",
             toggleActions: "restart pause reverse pause",
             scrub: true,
-            markers: true,
             onUpdate: self => {
                 const progress = self.progress;
                 if (progress < 0.1) {
@@ -403,35 +418,195 @@ function solitude(){
     });
 }
 
-function pensees(){
-// Sélection des éléments du texte roulant
-const scrollingText = gsap.utils.toArray('#pensees p.pensee');
+function pensees() {
+    // Sélection des éléments du texte roulant
+    const scrollingText = gsap.utils.toArray('#pensees p.pensee');
 
-// Animation contrôlée par le défilement
-const scrollTimeline = gsap.timeline({
-  defaults: { ease: "none" },
-  scrollTrigger: {
-    trigger: "#step7",
-    start: "top -20%",
-    end: "bottom 50%",
-    scrub: true
-  }
-});
+    // Animation contrôlée par le défilement
+    const scrollTimeline = gsap.timeline({
+        defaults: { ease: "none" },
+        scrollTrigger: {
+            trigger: "#step7",
+            start: "top -20%",
+            end: "bottom 50%",
+            scrub: true
+        }
+    });
 
-// Animation unique pour chaque élément de texte
-scrollingText.forEach((item, i) => {
-    // Position initiale (hors écran à droite)
-    gsap.set(item, {
-      x: window.innerWidth
+    // Animation unique pour chaque élément de texte
+    scrollingText.forEach((item, i) => {
+        // Position initiale (hors écran à droite)
+        gsap.set(item, {
+            x: window.innerWidth
+        });
+
+        // Animation vers la gauche
+        scrollTimeline.to(item, {
+            x: -(item.offsetWidth * 1.8), // Déplace jusqu'à ce que l'élément sorte de l'écran
+            duration: 1.5,
+        });
     });
-  
-    // Animation vers la gauche
-    scrollTimeline.to(item, {
-      x: -(item.offsetWidth*1.8), // Déplace jusqu'à ce que l'élément sorte de l'écran
-      duration: 1.5,
-    });
-  });
 }
 
-function impuissance(){
+function impuissance() {
+    gsap.to("#imp", {
+        ease: "power1.in",
+        scrollTrigger: {
+            trigger: "#step7",
+            start: "top 10%",
+            end: "top 0%",
+            toggleActions: "restart pause reverse pause",
+            scrub: true,
+            onUpdate: self => {
+                const progress = self.progress;
+                if (progress < 0.01) {
+                    gsap.to("#imp", { opacity: 0 });
+                } else {
+                    gsap.to("#imp", { opacity: progress });
+                }
+            },
+        }
+    });
+
+    gsap.to("#imp1", {
+        ease: "power1.in",
+        scrollTrigger: {
+            trigger: "#step8",
+            start: "top 10%",
+            end: "top -20%",
+            toggleActions: "restart pause reverse pause",
+            scrub: true,
+            onUpdate: self => {
+                const progress = self.progress;
+                if (progress < 0.1) {
+                    gsap.to("#imp1", { opacity: 0 });
+                } else {
+                    gsap.to("#imp1", { opacity: progress });
+                }
+            },
+        }
+    });
+
+    gsap.to("#imp2", {
+        ease: "power1.in",
+        scrollTrigger: {
+            trigger: "#step8",
+            start: "top -30%",
+            end: "top -40%",
+            toggleActions: "restart pause reverse pause",
+            scrub: true,
+            onUpdate: self => {
+                const progress = self.progress;
+                if (progress < 0.1) {
+                    gsap.to("#imp2", { opacity: 0 });
+                } else {
+                    gsap.to("#imp2", { opacity: progress });
+                }
+            },
+        }
+    });
+
+    gsap.to("#imp3", {
+        ease: "power1.in",
+        scrollTrigger: {
+            trigger: "#step8",
+            start: "top -70%",
+            end: "top -80%",
+            toggleActions: "restart pause reverse pause",
+            scrub: true,
+            onUpdate: self => {
+                const progress = self.progress;
+                if (progress < 0.1) {
+                    gsap.to("#imp3", { opacity: 0 });
+                } else {
+                    gsap.to("#imp3", { opacity: progress });
+                }
+            },
+        }
+    });
+}
+
+function situation() {
+    gsap.to("#situation", {
+        ease: "power1.in",
+        scrollTrigger: {
+            trigger: "#step8",
+            start: "top 10%",
+            end: "top 0%",
+            toggleActions: "restart pause reverse pause",
+            scrub: true,
+            onUpdate: self => {
+                const progress = self.progress;
+                if (progress < 0.01) {
+                    gsap.to("#situation", { opacity: 0 });
+                } else {
+                    gsap.to("#situation", { opacity: progress });
+                }
+            },
+        }
+    });
+    const situations = document.querySelectorAll('.situation');
+
+    situations.forEach((sit, index) => {
+        gsap.set(sit, {
+            opacity: 0,
+        });
+
+        ScrollTrigger.create({
+            trigger: "#step9",
+            start: `top+=${index * 200}px 40%`, // Décalage progressif du déclenchement
+            end: `top+=${(index + 1) * 350}px center`,
+            toggleActions: "restart pause reverse pause",
+            scrub: true,
+            onUpdate: self => {
+                const progress = self.progress;
+                if (progress < 0.1) {
+                    gsap.to(sit, { opacity: 0 });
+                } else {
+                    gsap.to(sit, { opacity: progress });
+                }
+            },
+        });
+    });
+}
+
+function citation() {
+    gsap.to("#citation1", {
+        ease: "power1.in",
+        scrollTrigger: {
+            trigger: "#step10",
+            start: "top 20%",
+            end: "top 0%",
+            toggleActions: "restart pause reverse pause",
+            scrub: true,
+            onUpdate: self => {
+                const progress = self.progress;
+                if (progress < 0.1) {
+                    gsap.to("#citation1", { opacity: 0 });
+                } else {
+                    gsap.to("#citation1", { opacity: progress });
+                }
+            },
+        }
+    });
+
+    gsap.to("#citation2", {
+        ease: "power1.in",
+        scrollTrigger: {
+            trigger: "#step10",
+            start: "top 0",
+            end: "center center",
+            toggleActions: "restart pause reverse pause",
+            scrub: true,
+            markers: true,
+            onUpdate: self => {
+                const progress = self.progress;
+                if (progress < 0.1) {
+                    gsap.to("#citation2", { opacity: 0 });
+                } else {
+                    gsap.to("#citation2", { opacity: progress });
+                }
+            },
+        }
+    });
 }

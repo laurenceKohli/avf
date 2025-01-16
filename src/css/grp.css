@@ -94,7 +94,7 @@ img{
     height: 700px;
   }
 
-  #step3, #step6{
+  #step3, #step6, #step8, #step10{
     height: 1400px;
   }
 
@@ -121,7 +121,11 @@ img{
   white-space: nowrap;
 }
 
-#seule1, #seule2{
+.situation{
+  position: absolute;
+}
+
+#seule1, #seule2, #imp1, #imp2, #imp3{
   margin : 0;
   top: -30px;
   position: relative;
@@ -139,16 +143,18 @@ img{
   display: flex;
   gap : 100px;
 }
-/* 
-.pensee{*/
-  /* transform: translate(900px, 0); */
-/* } */ 
+
  .pensee {
     white-space: nowrap;
     font-family: 'Caveat', cursive;
     font-size: 60px;
   }
 
+  #citation1, #citation2{
+    font-size: 40px;
+    font-family: 'Caveat', cursive;
+    max-width: 600px;
+  }
 
 #seule, #impuissance, #groupe, #conclusion{
     display: block;
