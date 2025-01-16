@@ -1,5 +1,7 @@
 import scrollama from "scrollama";
 import { select } from "d3-selection";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const scrolly = select("#fix");
 const figure = scrolly.select("figure");
@@ -7,10 +9,10 @@ const article = scrolly.select("article");
 const step = document.querySelectorAll(".step");
 // initialize the scrollama
 const scroller = scrollama();
+gsap.registerPlugin(ScrollTrigger);
 
 function handleStepEnter(response) {
     // update graphic based on step
-    console.log(response.index);
     switch (response.index) {
         case 0:
             figure.html(`
@@ -22,7 +24,7 @@ function handleStepEnter(response) {
             break;
         case 1:
            figure.html(`
-                <p class="parole1" style="top: 50px;left: 150px;">Appelez les <span>secours</span> !</p>
+                <p class="parole1" style="top: 70px;left: 150px;">Appelez les <span>secours</span> !</p>
                 <p class="parole1">Mon Dieu ! Que lui arrive-t-il ?</p>
                 <p class="parole1" style="top: 400px;left: 50px;">Mais <span>faites quelque chose</span> !</p>
                 <p class="parole1"></p>
@@ -40,7 +42,7 @@ function handleStepEnter(response) {
         case 3:
             figure.html(`
                 <p class="parole">Il va <span>mourir</span> !</p>
-                <p class="parole" style="top: 20px; left: -250px;">Oh mon Dieu ! Faites quelque chose !</p>
+                <p class="parole" style="top: 70px; left: -250px;">Oh mon Dieu ! Faites quelque chose !</p>
                 <p class="parole" style="top: 400px;left: -100px;">C'est <span>inhumain</span> de le regarder sans agir !</p>
                 `);
             paroles('.parole', '#step4');
@@ -78,12 +80,6 @@ export function initCriseScroll() {
               })
               .onStepEnter(handleStepEnter);
       }
-
-
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 //affiche le texte #crise quand #start est à 30% du haut de la fenêtre
 function start() {
@@ -176,9 +172,9 @@ function end() {
 		scrollTrigger: {
 			trigger: "#step6",
 			start: "center 90%", 
-			end: "center 60%", 
+			end: "center 40%", 
 			toggleActions: "restart pause reverse pause",
-			scrub: true, 
+			scrub: true,
 			onUpdate: self => {
 				const progress = self.progress;
 				if (progress > 0.8) {
@@ -194,11 +190,10 @@ function end() {
         ease: "power1.in", 
         scrollTrigger: {
             trigger: "#step6", 
-            start: "top 10%", 
+            start: "top 5%", 
             end: "bottom center", 
             toggleActions: "restart pause reverse pause",
             scrub: true,
-            markers: true,
            onEnter: () => gsap.to("#pizzas", { opacity: 1, duration: 0.5 }),
             onLeave: () => gsap.to("#pizzas", { opacity: 0, duration: 0.5 }),
             onEnterBack: () => gsap.to("#pizzas", { opacity: 1, duration: 0.5 }),
@@ -295,14 +290,18 @@ function laReponse() {
         ease: "power1.in", 
         scrollTrigger: {
             trigger: "#step5", 
-            start: "top 20%", 
+            start: "center 50%", 
             end: "bottom 80%", 
             toggleActions: "restart pause reverse pause",
             scrub: true,
-           onEnter: () => gsap.to("#reponse", { opacity: 1, duration: 0.5 }),
-            onLeave: () => gsap.to("#reponse", { opacity: 0, duration: 0.5 }),
-            onEnterBack: () => gsap.to("#reponse", { opacity: 1, duration: 0.5 }),
-            onLeaveBack: () => gsap.to("#reponse", { opacity: 0, duration: 0.5 })
+            onUpdate: self => {
+                const progress = self.progress;
+                if (progress < 0.2) {
+                    gsap.to("#reponse", { opacity: 0 });
+                } else {
+                    gsap.to("#reponse", { opacity: progress });
+                }
+            },
         }
     });
 }
