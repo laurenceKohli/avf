@@ -86,13 +86,13 @@ function handleStepEnter(response) {
                 <h2 id="seule">Enfin <span>seule...</span></h2>
                 <p class="high" id="seule1">Vous repensez à cette journée</p>
                 <p class="high" id="seule2">Vous revoyez le <span>regard paniqué</span> des autres clients, vous vous rappelez les <span>critiques</span>.</p>
-                <p class="pensee"><span>Et si</span> on était pas sorti</p>
                 <div id="scrolling-text">
-                <div id="pensees">
-			    <p class="pensee">Et si j’avais demandé la <span>table au fond</span></p>
-			    <p class="pensee">Et si j’avais vérifié son <span>état</span> avant notre départ</p>
-                <p class="pensee"></p>
-                </div></div>
+                    <div id="pensees"> 
+                        <p class="pensee"><span>Et si</span> on était pas sorti</p>
+                        <p class="pensee">Et si j’avais demandé la <span>table au fond</span></p>
+                        <p class="pensee">Et si j’avais vérifié son <span>état</span> avant notre départ</p>
+                    </div>
+                </div>
             `);
             solitude();
             pensees();
@@ -368,7 +368,7 @@ function solitude(){
         scrollTrigger: {
             trigger: "#step7",
             start: "top 0%",
-            end: "center 90%",
+            end: "top -10%",
             toggleActions: "restart pause reverse pause",
             scrub: true,
             onUpdate: self => {
@@ -386,8 +386,8 @@ function solitude(){
         ease: "power1.in",
         scrollTrigger: {
             trigger: "#step7",
-            start: "center 90%",
-            end: "center 80%",
+            start: "top -10%",
+            end: "top -20%",
             toggleActions: "restart pause reverse pause",
             scrub: true,
             markers: true,
@@ -404,7 +404,33 @@ function solitude(){
 }
 
 function pensees(){
+// Sélection des éléments du texte roulant
+const scrollingText = gsap.utils.toArray('#pensees p.pensee');
 
+// Animation contrôlée par le défilement
+const scrollTimeline = gsap.timeline({
+  defaults: { ease: "none" },
+  scrollTrigger: {
+    trigger: "#step7",
+    start: "top -20%",
+    end: "bottom 50%",
+    scrub: true
+  }
+});
+
+// Animation unique pour chaque élément de texte
+scrollingText.forEach((item, i) => {
+    // Position initiale (hors écran à droite)
+    gsap.set(item, {
+      x: window.innerWidth
+    });
+  
+    // Animation vers la gauche
+    scrollTimeline.to(item, {
+      x: -(item.offsetWidth*1.8), // Déplace jusqu'à ce que l'élément sorte de l'écran
+      duration: 1.5,
+    });
+  });
 }
 
 function impuissance(){

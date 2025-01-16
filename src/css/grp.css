@@ -99,7 +99,7 @@ img{
   }
 
   #step7{
-    height: 2000px;
+    height: 5000px;
   }
   
   .step:last-child {
@@ -127,8 +127,27 @@ img{
   position: relative;
 }
 
+#scrolling-text {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+}
 
-
+#pensees {
+  display: flex;
+  gap : 100px;
+}
+/* 
+.pensee{*/
+  /* transform: translate(900px, 0); */
+/* } */ 
+ .pensee {
+    white-space: nowrap;
+    font-family: 'Caveat', cursive;
+    font-size: 60px;
+  }
 
 
 #seule, #impuissance, #groupe, #conclusion{
