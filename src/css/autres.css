@@ -1,0 +1,14 @@
+#avf section {
+    height: auto;
+  }
+  
+  #symptomes {
+    display: flex;
+    gap : var(--gap-small);
+    align-items: center;
+  }
+  
+  #symptomes li {
+    margin-bottom: 10px;
+  }
+  

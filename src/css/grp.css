@@ -14,12 +14,12 @@ img{
 #timer{
     opacity: 0;
     position: fixed;
-    top: 15px;
+    top: 35px;
     left: 700px;
     z-index: 100;
 }
 
-#intro, #salle, #reponse {
+#intro, #salle {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -27,7 +27,7 @@ img{
     gap: var(--gap-classic);
 }
 
-#intro > *, #salle > *, #reponse > * {
+#intro > *, #salle > * {
     flex : 1 1 0;
 }
 
@@ -61,7 +61,7 @@ img{
   
   figure {
     position: sticky;
-    top: 30px;
+    top: 50px;
     width: 100%;
     margin: 0;
     height: 600px;
@@ -150,6 +150,10 @@ img{
     font-size: 40px;
     font-family: 'Caveat', cursive;
     max-width: 600px;
+  }
+
+  #reponse{
+    font-family: 'Caveat', cursive;
   }
 
 #seule, #impuissance, #groupe, #conclusion{
